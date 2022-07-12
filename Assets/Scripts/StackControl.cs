@@ -25,8 +25,11 @@ public class StackControl : MonoBehaviour
     {
         if (!isStack)
         {
-            transform = stackObjects[stackObjects.Count - 1].transform;
-            transform.position = Vector3.Lerp(transform.position, stackTransform.transform.position, Time.deltaTime * 1);
+            if (stackObjects.Count > 0)
+            {
+                transform = stackObjects[stackObjects.Count - 1].transform;
+                transform.position = Vector3.Lerp(transform.position, stackTransform.transform.position, Time.deltaTime * 5);
+            }
         }
         //gameObject.transform.rotation = Quaternion.identity;
     }
