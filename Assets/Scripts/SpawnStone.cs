@@ -32,9 +32,21 @@ public class SpawnStone : MonoBehaviour
             StackControl.instance.stackObjects.Add(spawn);
             StackControl.instance.isStack = false;
         }
-        //else if (StackControl.instance.stackObjects[StackControl.instance.stackObjects.Count - 1].transform.position != )
-        //{
-                
-        //}
+        else
+        {
+            int count = StackControl.instance.stackObjects.Count;
+            if (count > 0)
+            {
+                for (int i = count - 1; i > count - 2; i--)
+                {
+                    if (count > 1)
+                    {
+                        Transform endObject = StackControl.instance.stackObjects[count - 1].transform;
+                        Transform lastObject = StackControl.instance.stackObjects[count - 2].transform;
+                        endObject.position = new Vector3(lastObject.position.x, endObject.position.y, lastObject.position.z);
+                    }
+                }
+            }
+        }
     }
 }
