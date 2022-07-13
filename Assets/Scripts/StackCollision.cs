@@ -14,7 +14,7 @@ public class StackCollision : MonoBehaviour
         if (StackControl.instance.stackObjects.Count > 0)
         {
             stoneToStack = Vector3.Distance(StackControl.instance.stackObjects[StackControl.instance.stackObjects.Count - 1].transform.position, transform.position);
-            Debug.Log(stoneToStack);
+            //Debug.Log(stoneToStack);
             if (stoneToStack < 0.001f)
             {
                 StackControl.instance.isStack = true;

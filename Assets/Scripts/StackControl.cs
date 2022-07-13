@@ -10,7 +10,7 @@ public class StackControl : MonoBehaviour
     public GameObject stoneBuild;
 
     public Transform stackTransform;
-    Transform transform;
+    Transform transformObject;
 
     public bool isStack = false;
     private void Awake()
@@ -27,8 +27,8 @@ public class StackControl : MonoBehaviour
         {
             if (stackObjects.Count > 0)
             {
-                transform = stackObjects[stackObjects.Count - 1].transform;
-                transform.position = Vector3.Lerp(transform.position, stackTransform.transform.position, Time.deltaTime * 5);
+                transformObject = stackObjects[stackObjects.Count - 1].transform;
+                transformObject.position = Vector3.Lerp(transformObject.position, stackTransform.transform.position, Time.deltaTime * 5);
             }
         }
         //gameObject.transform.rotation = Quaternion.identity;
