@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 528570568}
   - component: {fileID: 528570569}
   m_Layer: 0
-  m_Name: StackCollision
+  m_Name: PlayerStackCollision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -308,7 +308,7 @@ GameObject:
   - component: {fileID: 551411742}
   - component: {fileID: 551411744}
   m_Layer: 0
-  m_Name: StackControl
+  m_Name: PlayerStackControl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -507,7 +507,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 758764033}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.97, y: 0, z: -1.4399998}
+  m_LocalPosition: {x: -0.965, y: 0, z: -1.4399998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 682840409}
