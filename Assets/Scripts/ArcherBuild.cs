@@ -13,6 +13,8 @@ public class ArcherBuild : MonoBehaviour
     int archerStoneNeedCount = 5;
 
     float playerToArcherBuild;
+
+    bool archerCompleted = false;
     private void Start()
     {
         archerStoneCountText.text = archerStoneCount + "" + " / " + archerStoneNeedCount;
@@ -21,7 +23,11 @@ public class ArcherBuild : MonoBehaviour
     {
         playerToArcherBuild = Vector3.Distance(player.transform.position, transform.position);
         Debug.Log(playerToArcherBuild);
-        if (StackControl.instance.stackObjects.Count > 0)
+        if (archerStoneCount == archerStoneNeedCount)
+        {
+            archerStoneCount = 0;
+        }
+        if (StackControl.instance.stackObjects.Count > 0 && !archerCompleted)
         {
             Transform stackTransform = StackControl.instance.stackObjects[StackControl.instance.stackObjects.Count - 1].transform;
             if (playerToArcherBuild < 2.5f)
@@ -37,11 +43,14 @@ public class ArcherBuild : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        archerStoneCount++;
-        archerStoneCountText.text = archerStoneCount + "" + " / " + archerStoneNeedCount;
-        StackControl.instance.stackObjects.Remove(other.gameObject);
-        Destroy(other.gameObject, 1);
-        Transform playerStackClone = NewStack.instance.playerStack.transform;
-        playerStackClone.position = new Vector3(playerStackClone.position.x, playerStackClone.position.y - 0.15f, playerStackClone.position.z);
+        if (!archerCompleted)
+        {
+            archerStoneCount++;
+            archerStoneCountText.text = archerStoneCount + "" + " / " + archerStoneNeedCount;
+            StackControl.instance.stackObjects.Remove(other.gameObject);
+            Destroy(other.gameObject, 1);
+            Transform playerStackClone = NewStack.instance.playerStack.transform;
+            playerStackClone.position = new Vector3(playerStackClone.position.x, playerStackClone.position.y - 0.15f, playerStackClone.position.z);
+        }
     }
 }
