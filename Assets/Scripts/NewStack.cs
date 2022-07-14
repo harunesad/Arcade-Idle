@@ -129,6 +129,6 @@ public class NewStack : MonoBehaviour
                 stack.position = Vector3.Lerp(stack.position, stackPointBuild.transform.position, Time.deltaTime * 3);
             }
         }
-        Debug.Log(distanceToStackCollision);
+        //Debug.Log(distanceToStackCollision);
     }
 }
