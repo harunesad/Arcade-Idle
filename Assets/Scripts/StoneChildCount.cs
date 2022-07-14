@@ -10,12 +10,17 @@ public class StoneChildCount : MonoBehaviour
     public Text count;
     public GameObject stack;
     public GameObject archerBuild;
+    GameObject destroyObject;
 
     int childCount;
-    int needCount = 60;
+    int needCount = 5;
+
+    Renderer rnd;
     private void Awake()
     {
         instance = this;
+        rnd = archerBuild.GetComponent<Renderer>();
+        destroyObject = GameObject.Find("Plane");
     }
     void Start()
     {
@@ -23,7 +28,10 @@ public class StoneChildCount : MonoBehaviour
     }
     void Update()
     {
-        childCount = stack.transform.childCount - 1;
+        if (stack != null)
+        {
+            childCount = stack.transform.childCount - 1;
+        }
         count.text = childCount + "" + " / " + needCount;
 
     }
@@ -31,9 +39,11 @@ public class StoneChildCount : MonoBehaviour
     {
         if (childCount == needCount)
         {
-            Instantiate(archerBuild, archerBuild.transform.position + new Vector3(0, 4, 0), Quaternion.identity);
-            stack.transform.DetachChildren();
-            NewStack.instance.isCompleted = true;
+            //Instantiate(archerBuild, archerBuild.transform.position + new Vector3(0, 4, 0), Quaternion.identity);
+            //stack.transform.DetachChildren();
+            rnd.enabled = true;
+            //NewStack.instance.isCompleted = true;
+            Destroy(destroyObject);
         }
     }
 }

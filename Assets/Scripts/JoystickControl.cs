@@ -35,7 +35,7 @@ public class JoystickControl : MonoBehaviour
         {
             firstTouch = Input.mousePosition;
         }
-        move =Vector3.Distance(secondTouch, firstTouch);
+        move = Vector3.Distance(secondTouch, firstTouch);
         if (Input.GetButton("Fire1"))
         {
             if (move == 0)

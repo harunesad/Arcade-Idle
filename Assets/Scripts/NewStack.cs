@@ -34,10 +34,10 @@ public class NewStack : MonoBehaviour
     {
         distanceToStack = Vector3.Distance(player.transform.position, transform.position);
         //Debug.Log(distanceToStack);
-        if (StackControl.instance.stackObjects.Count > 0 && !isCompleted)
+        if (StackControl.instance.stackObjects.Count > 0)
         {
             Transform stack = StackControl.instance.stackObjects[StackControl.instance.stackObjects.Count - 1].transform;
-            if (distanceToStack < 1.5f)
+            if (distanceToStack < 2.5f)
             {
                 stack.transform.parent = parent.transform;
                 distanceToStackCollision = Vector3.Distance(stack.localPosition, stackPointBuild.transform.localPosition);
