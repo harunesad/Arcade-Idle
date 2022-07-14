@@ -21,7 +21,7 @@ public class NewStack : MonoBehaviour
     int stepThree = 23;
     int stepFour = 28;
 
-    public bool isMove = false;
+    public bool isCompleted = false;
     private void Awake()
     {
         instance = this;
@@ -34,10 +34,10 @@ public class NewStack : MonoBehaviour
     {
         distanceToStack = Vector3.Distance(player.transform.position, transform.position);
         //Debug.Log(distanceToStack);
-        if (StackControl.instance.stackObjects.Count > 0)
+        if (StackControl.instance.stackObjects.Count > 0 && !isCompleted)
         {
             Transform stack = StackControl.instance.stackObjects[StackControl.instance.stackObjects.Count - 1].transform;
-            if (distanceToStack < 2)
+            if (distanceToStack < 1.5f)
             {
                 stack.transform.parent = parent.transform;
                 distanceToStackCollision = Vector3.Distance(stack.localPosition, stackPointBuild.transform.localPosition);
@@ -121,6 +121,7 @@ public class NewStack : MonoBehaviour
                         }
                     }
                     playerStack.transform.position = new Vector3(playerStack.transform.position.x, playerStack.transform.position.y - 0.15f, playerStack.transform.position.z);
+                    StoneChildCount.instance.StackFinish();
                 }
             }
             if (stack.transform.parent == parent.transform)
