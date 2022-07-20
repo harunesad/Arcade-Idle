@@ -16,7 +16,7 @@ public class StoneChildCount : MonoBehaviour
     public GameObject archerBuildCount;
 
     int childCount;
-    int needCount = 5;
+    int needCount = 2;
 
     Renderer rnd;
     private void Awake()
